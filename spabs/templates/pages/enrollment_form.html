@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-xxl py-5 bg-primary hero-header">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated slideInDown">Enrollment Form</h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Enrollment</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h3>Enrollment Form</h3>
+</div>
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+           
+            formError
+            <form  method="post" id="enrollPage">
+                {% csrf_token %}
+              <div class="mb-3">
+                {{ form | crispy }}
+              </div>
+              
+            <div class="text-center">
+                <button class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" type="submit">Enroll Now</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+<script>
+   
+    document.getElementById('enrollPage').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formError = null
+            // Collect form data
+            let formData = new FormData(this);
+            console.log(formData)
+
+            // Send form data using fetch
+            fetch('{% url "enrolment_verify_view" %}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => { console.log(data.success)
+                if (data.success) {
+                    // Redirect to another page with validated inputs
+                    window.location.href = `/details-verification/?id=${data.id}?status=${data.status}?tx_ref=${data.tx_ref}`;
+                } else {
+                    this.formError = data.errors
+                    console.log(data.errors)
+                }
+            }).catch(err => console.log(err.message))
+        });
+</script>
+{% endblock content %}

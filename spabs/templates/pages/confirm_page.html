@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block content %}
+
+<div class="container-xxl py-5 bg-primary hero-header">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated slideInDown">Confirmation Page</h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Confirmation Page</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h3>Confirm Details - {{ aplicant_qs.job_categories }} | Fee: ₦{{ aplicant_qs.job_categories.fee | intcomma }}</h3>
+</div>
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+        <div class="container text-center">
+            <div class="row">
+                
+                <div class="container text-center">
+                    <div class="row row-cols-3">
+                    <div class="col">
+                        <b>Name</b> <br>
+                        {{ aplicant_qs.names }}
+                    </div>
+                    <div class="col">
+                        <b>Gender</b> <br>
+                        {{ aplicant_qs.gender }}
+                    </div>
+                    <div class="col">
+                        <b>Residential Address</b> <br>
+                        {{ aplicant_qs.residential_address }}
+                    </div>
+                    <div class="col">
+                        <b>State of residential</b> <br>
+                        {{ aplicant_qs.state_of_residential }}
+                    </div>
+                    <div class="col">
+                        <b>Local Gov Area</b> <br>
+                        {{ aplicant_qs.local_gov_area }}
+                    </div>
+
+                    <div class="col">
+                        <b>Phone Number</b> <br>
+                        {{ aplicant_qs.phone_number }}
+                    </div>
+
+                    <div class="col">
+                        <b>Date Of Birth</b> <br>
+                        {{ aplicant_qs.date_of_birth }}
+                    </div>
+
+                    <div class="col">
+                        <b>Plaace Of Birth</b> <br>
+                        {{ aplicant_qs.place_of_birth }}
+                    </div>
+
+                    <div class="col">
+                        <b>State of Origin</b> <br>
+                        {{ aplicant_qs.state_of_origin }}
+                    </div>
+
+                    <div class="col">
+                        <b>Means Of Identification</b> <br>
+                        {{ aplicant_qs.means_of_identification }}
+                    </div>
+
+                    <div class="col">
+                        <b>Next Of Kin</b> <br>
+                        {{ aplicant_qs.next_of_kin }}
+                    </div>
+
+                    <div class="col">
+                        <b>Referee</b> <br>
+                        {{ aplicant_qs.referee }}
+                    </div>
+
+
+                      
+                    </div>
+                  </div>
+                  <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                    
+                    <input type="hidden" name="public_key" value="FLWPUBK_TEST-019b573fc777164b2ee772f165ff69e4-X" />
+                    <input type="hidden" name="customer[email]" value="support@spabs.com" />
+                    <input type="hidden" name="customer[name]" value="{{aplicant_qs.names}}" />
+                    <input type="hidden" name="customer[phone_number]" value="{{aplicant_qs.phone_number}}" />
+                    <input type="hidden" name="tx_ref" id="txrefInput" />
+                    <input type="hidden" name="amount" value="{{ aplicant_qs.job_categories.fee }}" />
+                    <input type="hidden" name="currency" value="NGN" />
+                    <input type="hidden" name="redirect_url" value="https://c0b9-102-91-4-25.ngrok-free.app/completed/" />
+                    <br>
+                    <button type="submit" id="start-payment-button"  class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Pay Now</button>
+                  </form>
+                 
+              
+            </div>
+          </div>
+        </div>
+
+        
+    </div>
+</div>
+
+<script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get parameters from the URL
+    var useer_id = getUrlParameter('id');
+    var tXref = getUrlParameter('tx_ref');
+
+    document.getElementById('txrefInput').value = tXref;
+    console.log(tXref)
+
+</script>
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block content %}
+
+
+        <div class="container-xxl py-5 bg-primary hero-header">
+            <div class="container my-5 py-5 px-lg-5">
+                <div class="row g-5 py-5">
+                    <div class="col-12 text-center">
+                        <h1 class="text-white animated slideInDown">Our Job Portal</h1>
+                        <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Enrollment</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ <!-- About Start -->
+ <div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title text-secondary">Our Job Portal<span></span></p>
+                <h1 class="mb-5">SGSL EMPLOYMENT ACROSS OGUN STATE IS IN PROGRESS</h1>
+                <p class="mb-4">DAILY COMMISSION STAFFS includes Monthly Pension Benefits, Healthcare and Life Insurance: Kindly enroll as follows;</p>
+                <p>MONTHLY SALARIES AND WAGES STAFFS includes monthly pension benefits, healthcare and insurance:<br>
+                SGSL Staffs enrollment into SGSL's State, Zones and Local Govt departments and offices are available through the enrollment link below:
+                </p>
+                
+                <a href="{% url 'enrollment_form' %}" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Enroll Now</a>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{% static 'spabs/img/worker.png' %}">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->       
+ <!-- Service Start -->
+ <div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+               <div class="row g-4">
+                {% for j in jobs_qs %}
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item d-flex flex-column text-center rounded">
+                    <div class="service-icon flex-shrink-0">
+                        <i class="fa fa-users fa-2x"></i>
+                    </div>
+                    <h5 class="mb-3">{{ j.job_title }}</h5>
+                    <p class="m-0">Enrollment Fee: ₦{{ j.fee | intcomma }}<br>
+                         {{ j.description | safe}}
+                       </p>
+                    <a class="btn btn-square" href="{% url 'enrollment_form' %}"><i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+            
+            <p><b>NB:</b><br> All Staffs enrolled for Job in all categories as stated above whether on commission or monthly salaries or wages, shall benefits accrued monthly commissions and bonus payments to the tune of #70,000 new minimum wage and well above in allowances and bonus including monthly pension benefits plan, healthcare and life insurance policy plan.</p>
+            <div class="text-center"><a href="{% url 'enrollment_form' %}" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Enroll Now</a></div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+       
+
+      
+{% endblock content %}

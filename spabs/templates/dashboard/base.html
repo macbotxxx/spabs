@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx" class="js">
+  <head>
+    <base href="../../" />
+    <meta charset="utf-8" />
+    <meta name="author" content="Softnio" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+          content="Spabs Job Portal" />
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon"
+          href="{% static 'dashboard/favicon.png' %}" />
+    <!-- Page Title  -->
+    <title>Spabs Dashboard</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet"
+          href="{% static 'dashboard/assets/css/dashlite.css' %}" />
+    <link id="skin-default"
+          rel="stylesheet"
+          href="{% static 'dashboard/assets/css/theme.css' %}" />
+  </head>
+  <body class="nk-body ui-rounder has-sidebar ">
+    <div class="nk-app-root">
+      <!-- main @s -->
+      <div class="nk-main  ">
+        <!-- sidebar @s -->
+        <div class="nk-sidebar is-light nk-sidebar-fixed is-light "
+             data-content="sidebarMenu">
+          <div class="nk-sidebar-element nk-sidebar-head">
+            <div class="nk-sidebar-brand">
+              <a href="{% url 'dashboard:dashboard_index' %}" class="logo-link nk-sidebar-logo">
+                <img class="logo-light logo-img"
+                     src="{% static 'dashboard/logo2.png' %}"
+                     alt="logo" />
+                <img class="logo-dark logo-img"
+                     src="{% static 'dashboard/logo2.png' %}"
+                     alt="logo-dark" />
+                <img class="logo-small logo-img logo-img-small"
+                     src="{% static 'dashboard/logo2.png' %}"
+                     alt="logo-small" />
+              </a>
+            </div>
+            <div class="nk-menu-trigger me-n2">
+              <a href="#"
+                 class="nk-nav-toggle nk-quick-nav-icon d-xl-none"
+                 data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+            </div>
+          </div><!-- .nk-sidebar-element -->
+          <div class="nk-sidebar-element">
+            <div class="nk-sidebar-content">
+              <div class="nk-sidebar-menu" data-simplebar>
+                <ul class="nk-menu">
+                  <li class="nk-menu-heading">
+                    <h6 class="overline-title text-primary-alt">Dashboard</h6>
+                  </li><!-- .nk-menu-item -->
+                  <li class="nk-menu-item">
+                    <a href="{% url 'dashboard:dashboard_index' %}" class="nk-menu-link">
+                      <span class="nk-menu-icon"><em class="icon ni ni-presentation"></em></span>
+                      <span class="nk-menu-text">Dashboard</span>
+                    </a>
+                  </li><!-- .nk-menu-item -->
+                 
+                  <li class="nk-menu-heading">
+                    <h6 class="overline-title text-primary-alt"> Enrollment and Transactions </h6>
+                  </li><!-- .nk-menu-item -->
+                  <li class="nk-menu-item">
+                    <a href="{% url 'dashboard:enrollment_list' %}" class="nk-menu-link">
+                      <span class="nk-menu-icon">
+                        <em class="icon ni ni-property-add"></em>
+                      </span>
+                      <span class="nk-menu-text"> Enrollment List </span>
+                    </a>
+                  </li>
+                  
+                  <li class="nk-menu-item">
+                    <a href="{% url 'dashboard:transactions_view' %}" class="nk-menu-link">
+                      <span class="nk-menu-icon">
+                        <em class="icon ni ni-money"></em>
+                      </span>
+                      <span class="nk-menu-text">Transactions</span>
+                    </a>
+                  </li>
+
+                 
+                 
+                  
+                  <li class="nk-menu-heading">
+                    <h6 class="overline-title text-primary-alt">Settings</h6>
+                  </li><!-- .nk-menu-item -->
+                  
+                  
+                  <li class="nk-menu-item">
+                    <a href="" class="nk-menu-link">
+                      <span class="nk-menu-icon">
+                        <em class="icon ni ni-setting"></em>
+                      </span>
+                      <span class="nk-menu-text">Change Password</span>
+                    </a>
+                  </li><!-- .nk-menu-item -->
+
+                </ul><!-- .nk-menu -->
+              </div><!-- .nk-sidebar-menu -->
+            </div><!-- .nk-sidebar-content -->
+          </div><!-- .nk-sidebar-element -->
+        </div>
+        <!-- sidebar @e -->
+        <!-- wrap @s -->
+        <div class="nk-wrap ">
+          <!-- main header @s -->
+          <div class="nk-header is-light nk-header-fixed is-light">
+            <div class="container-xl wide-xl">
+              <div class="nk-header-wrap">
+                <div class="nk-menu-trigger d-xl-none ms-n1 me-3">
+                  <a href="#"
+                     class="nk-nav-toggle nk-quick-nav-icon"
+                     data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                </div>
+                <div class="nk-header-brand d-xl-none">
+                  <a href="#" class="logo-link">
+                    <img class="logo-light logo-img"
+                         src="{% static 'dashboard/imag.png1' %}"
+
+                         alt="logo" />
+                    <img class="logo-dark logo-img"
+                         src="{% static 'dashboard/logo-dark.png' %}"
+
+                         alt="logo-dark" />
+                  </a>
+                </div><!-- .nk-header-brand -->
+
+                <div class="nk-header-tools">
+                  <ul class="nk-quick-nav">
+                    
+                    <!-- .dropdown -->
+                    <li class="dropdown user-dropdown">
+                      <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                        <div class="user-toggle">
+                          <div class="user-avatar sm">
+                            <em class="icon ni ni-user-alt"></em>
+                          </div>
+                        </div>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-md dropdown-menu-end">
+                        <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                          <div class="user-card">
+                            <div class="user-avatar">
+                              <span>AB</span>
+                            </div>
+                            <div class="user-info">
+                              <span class="lead-text">{{ request.user.name | title }}</span>
+                              <span class="sub-text">{{ request.user.email }}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-inner">
+                          <ul class="link-list">
+                            <li>
+                              <a href=""><em class="icon ni ni-user-alt"></em><span>Reset Password</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="dropdown-inner">
+                          <ul class="link-list">
+                            <li>
+                              <a href="{% url 'account_logout' %}"><em class="icon ni ni-signout"></em><span>Sign out</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- .nk-header-tools -->
+              </div>
+              <!-- .nk-header-wrap -->
+            </div>
+            <!-- .container-fliud -->
+          </div>
+          <!-- main header @e -->
+          {% block content %}
+
+          {% endblock content %}
+          <!-- footer @s -->
+          <div class="nk-footer">
+            <div class="container-xl wide-xl">
+              <div class="nk-footer-wrap">
+                <div class="nk-footer-copyright"> 2024 Spabs.</div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- footer @e -->
+        </div>
+        <!-- wrap @e -->
+      </div>
+      <!-- main @e -->
+    </div>
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script defer src="{% static 'dashboard/assets/js/bundle.js' %}"></script>
+    <script defer src="{% static 'dashboard/assets/js/scripts.js' %}"></script>
+  </body>
+</html>

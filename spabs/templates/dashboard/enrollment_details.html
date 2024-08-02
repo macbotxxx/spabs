@@ -1,0 +1,74 @@
+{% extends "dashboard/base.html" %}
+
+{% load static humanize crispy_forms_tags %}
+
+{% block content %}
+
+<div class="" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <em class="icon ni ni-cross"></em>
+            </a>
+            <div class="modal-body modal-body-md">
+                
+                <div class="nk-tnx-details">
+                    
+                    <div class="nk-modal-head mt-sm-5 mt-4 mb-4">
+                        <h5 class="title">Aplicant Information</h5>
+                    </div>
+                    <div class="row gy-3">
+                        <div class="col-lg-6">
+                            <span class="sub-text">Names</span>
+                            <span class="caption-text">{{ enrollment_qs.names | title }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">Gender</span>
+                            <span class="caption-text">{{ enrollment_qs.gender | title }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">Phone Number</span>
+                            <span class="caption-text">{{ enrollment_qs.phone_number  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">Date Of Birth</span>
+                            <span class="caption-text">{{ enrollment_qs.date_of_birth  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">place of birth</span>
+                            <span class="caption-text">{{ enrollment_qs.place_of_birth  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">State Of Origin </span>
+                            <span class="caption-text">{{ enrollment_qs.state_of_origin  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">means_of_identification</span>
+                            <span class="caption-text">{{ enrollment_qs.means_of_identification  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">next_of_kin</span>
+                            <span class="caption-text">{{ enrollment_qs.next_of_kin  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">referee</span>
+                            <span class="caption-text">{{ enrollment_qs.referee  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">referee</span>
+                            <span class="caption-text">{{ enrollment_qs.phone_number  }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="sub-text">Job catergory </span>
+                            <span class="caption-text">{{ enrollment_qs.job_categories.id  }}</span>
+                        </div>
+                        
+                    </div><!-- .row -->
+                    
+                </div><!-- .nk-tnx-details -->
+            </div><!-- .modal-body -->
+        </div><!-- .modal-content -->
+    </div><!-- .modal-dialog -->
+</div><!-- .modal -->
+
+{% endblock content %}
