@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block content %}
-  <!-- Navbar & Hero End -->
-  <div class="container-xxl bg-primary hero-header">
+ <!-- Navbar & Hero End -->
+ <div class="container-xxl bg-primary hero-header">
     <div class="container px-lg-5">
         <div class="row g-5 align-items-end">
             <div class="col-lg-6 text-center text-lg-start">
-                <h1 class="text-white mb-4 animated slideInDown">SELFEMPLOYEES GLOBAL SERVICES LIMITED (SGSL)    </h1>
-                <p class="text-white pb-3 animated slideInDown">SGSL is an approved Ogun State Traders and Artisans Tax and Benefits Consultancy Management.
-                    SGSL Tax and Benefits Consultancy Scheme: Shared and Personal Assets Benefits Scheme (SPABS) a digital platform driven scheme <br> <br>SGSL EMPLOYMENT ACROSS OGUN STATE IS IN PROGRESS: CLICK BELLOW TO ENROLL</p>
-                <a href="enrollment.html" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Enrollment</a>
-                <a href="contact.html" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
+                <h1 class="text-white mb-4 animated slideInDown">SELFEMPLOYEES GLOBAL SERVICES LIMITED (SGSL) </h1>
+                <p class="text-white pb-3 animated slideInDown">SGSL is an approved Ogun State Traders and Artisans minimum tax and benefits consultancy management.<br><br>
+                    SGSL SCHEME:<br>  Shared and Personal Assets Benefits Scheme (SPABS) is a completely digital driven value added benefits (VAB) platform <br><br>SGSL ENROLLMENT ACROSS OGUN STATE IS IN PROGRESS:<br> CLICK BELLOW TO ENROLL</p>
+                <a href="{% url 'job_portal' %}" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Enrollment</a>
+                <a href="{% url 'contact' %}" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
             </div>
             <div class="col-lg-6 text-center text-lg-start">
                 <img class="img-fluid animated zoomIn" src="{% static 'spabs/img/hero.png' %}" alt="">
@@ -22,265 +22,180 @@
 <!-- About Start -->
 <div class="container-xxl py-5">
 <div class="container py-5 px-lg-5">
-  <div class="row g-5 align-items-center">
-      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-          <p class="section-title text-secondary">About SGSL-SPABS<span></span></p>
-          <h1 class="mb-5">SELFEMPLOYEES GLOBAL SERVICES LIMITED (SGSL)</h1>
-          <p class="mb-4">SELFEMPLOYEES GLOBAL SERVICES LIMITED (SGSL) is a certified Welfare Support Service Provider (WSSP) and Tax Consultant for Informal Sector workers’ digital solution with RC.NO: 1385536. </p><p>SGSL is an approved Ogun State Traders and Artisans Tax and Benefits Consultancy Management.
-              SGSL Tax and Benefits Consultancy Scheme: Shared and Personal Assets Benefits Scheme (SPABS) a digital platform driven scheme.
-          </p>
-          <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                  <p class="mb-2">SPABS - Vendor</p>
-                  <p class="mb-2">100%</p>
-              </div>
-              <div class="progress">
-                  <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-          </div>
-          <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                  <p class="mb-2">SPABS - Social Worker</p>
-                  <p class="mb-2">95%</p>
-              </div>
-              <div class="progress">
-                  <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-          </div>
-          <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                  <p class="mb-2">SPABS - Subscriber</p>
-                  <p class="mb-2">90%</p>
-              </div>
-              <div class="progress">
-                  <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-          </div>
-          <a href="{% url 'about' %}" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Read More</a>
-      </div>
-      <div class="col-lg-6">
-          <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{% static 'spabs/img/about.png' %}">
-      </div>
-  </div>
+<div class="row g-5 align-items-center">
+    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <p class="section-title text-secondary">About SGSL and Consultancy Mandate<span></span></p>
+        <h1 class="mb-5">SGSL & CONSULTANCY MANDATE</h1>
+        <p class="mb-4">SELFEMPLOYEES GLOBAL SERVICES LIMITED (SGSL) is a certified Welfare Support Service Provider (WSSP) and Tax Consultant for Informal Sector workers’ digital solution with RC.NO: 1385536</p>
+        <p>SGSL Consultancy management is privileged to collect minimum tax on a daily basis at a meagre amount from ogun state traders and artisans and provide value added services (VAS) benefits for tax payers compliance. Daily minimum tax collectible is #50 only.
+            <br><br>
+            SGSL-SPABS VALUE ADDED SERVICES (VAS) AND TAX COLLECTIONS:<br>  SGSL has three (3) well digitally redefined mechanisms for value added services (VAS) benefits provision and tax collections as follows;
+
+        <div class="skill mb-4">
+            <div class="d-flex justify-content-between">
+                <p class="mb-2">SPABS Tax Foot Soldiers (TFS) mechanism for collection of minimum tax and VAS benefits provision purpose;
+                </p>
+                <p class="mb-2">100%</p>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="skill mb-4">
+            <div class="d-flex justify-content-between">
+                <p class="mb-2">SPABS Social Workers (SW) mechanism for<br> enumeration purpose </p>
+                <p class="mb-2">95%</p>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="skill mb-4">
+            <div class="d-flex justify-content-between">
+                <p class="mb-2">Subscribers (traders and artisans) mobile digital application mechanism for VAS benefits access purpose</p>
+                <p class="mb-2">90%</p>
+            </div>
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+         </div>
+    <div class="col-lg-6">
+        <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{% static 'spabs/img/about.png' %}">
+    </div>
 </div>
 </div>
-        <!-- Feature Start -->
-        <div class="container-xxl py-5">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-4">
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="feature-item bg-light rounded text-center p-4">
-                            <i class="fa fa-3x fa-search text-primary mb-4"></i>
-                            <h5 class="mb-3">Our Vision</h5>
-                            <p class="m-0">We strive to be the leading force in enhancing the well-being and financial security of the Individuals in the Informal Sector, fostering a more inclusive and resilient economy, where every Traders and Artisans (Informal Sector Workers) strives with confidence, supported by our certified Welfare Support and TAX Consultancy Services.</p>
-                        </div>
+</div>
+<!-- About End -->
+
+
+<!-- Feature Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="feature-item bg-light rounded text-center p-4">
+                    <i class="fa fa-3x fa-search text-primary mb-4"></i>
+                    <h5 class="mb-3">Our Vision</h5>
+                    <p class="m-0">We strive to be the leading force in enhancing the well-being and financial security of the Individuals in the Informal Sector, fostering a more inclusive and resilient economy, where every Traders and Artisans (Informal Sector Workers) strives with confidence, supported by our certified Welfare Support and TAX Consultancy Services.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="feature-item bg-light rounded text-center p-4">
+                    <i class="fa fa-3x fa-check text-primary mb-4"></i>
+                    <h5 class="mb-3">Our Mission</h5>
+                    <p class="m-0">Committed to Excellence and Integrity, we aim to be the trusted partners that enables the Informal Sector Workforce (Traders and Artisans) to navigate the complexities of Taxation and enhance their overall economic stability through our SPABS TAX innovative digital solutions.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="feature-item bg-light rounded text-center p-4">
+                    <i class="fa fa-3x fa-bars text-primary mb-4"></i>
+                    <h5 class="mb-3">Our Service</h5>
+                <p class="m-0">SGSL Consultancy management is privileged to collect minimum tax on a daily basis from ogun state traders and artisans and provide value added services benefits for tax payers compliance </p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature End -->
+
+
+<!-- Newsletter Start -->
+<div class="container-xxl bg-primary newsletter py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center">
+                <p class="section-title text-white justify-content-center"><span></span>Newsletter<span></span></p>
+                <h1 class="text-center text-white mb-4">Stay Always In Touch</h1>
+                <p class="text-white mb-4">Subscribe to our newsletter to get the latest news updates</p>
+                <div class="position-relative w-100 mt-3">
+                    <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Enter Your Email" style="height: 48px;">
+                    <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Newsletter End -->
+ 
+<!-- Partners Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-3">
+        <p class="section-title text-secondary justify-content-center"><span></span>Our Partners<span></span></p>
+        <h1 class="text-center mb-5">Who we Service and Partner with!</h1>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item  rounded my-4">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'spabs/img/ogirs.jpeg' %}" style="width: 150px; height: 150px;"><b>.......... OGETAX ..........</b>
+            </div>
+            
+            <div class="testimonial-item  rounded my-4">
+                    <img class="img-fluid flex-shrink-0 " src="{% static 'spabs/img/stanbicasset.jpeg' %}" style="width: 450px; height: 153px;">
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Partners End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <p class="section-title text-secondary justify-content-center"><span></span>Our Team<span></span></p>
+            <h1 class="text-center mb-5">Our Board Members</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item bg-light rounded">
+                    <div class="text-center border-bottom p-4">
+                        <img class="img-fluid rounded-circle mb-4" src="{% static 'spabs/img/team-1.png' %}" alt="">
+                        <h5>Chief Joju Fadairo</h5>
+                        <span>Board Grand Patron</span>
                     </div>
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="feature-item bg-light rounded text-center p-4">
-                            <i class="fa fa-3x fa-check text-primary mb-4"></i>
-                            <h5 class="mb-3">Our Mission</h5>
-                            <p class="m-0">Committed to Excellence and Integrity, we aim to be the trusted partners that enables the Informal Sector Workforce (Traders and Artisans) to navigate the complexities of Taxation and enhance their overall economic stability through our SPABS TAX innovative digital solutions.</p>
-                        </div>
+                    <div class="d-flex justify-content-center p-4">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="feature-item bg-light rounded text-center p-4">
-                            <i class="fa fa-3x fa-bars text-primary mb-4"></i>
-                            <h5 class="mb-3">Our Service</h5>
-                        <p class="m-0">SGSL Consultancy management is privileged to collect minimum tax on a daily basis from ogun state traders and artisans and provide value added services benefits for tax payers compliance </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item bg-light rounded">
+                    <div class="text-center border-bottom p-4">
+                        <img class="img-fluid rounded-circle mb-4" src="{% static 'spabs/img/team-2.jpeg' %}" alt="">
+                        <h5>Adesina Oyewole</h5>
+                        <span>Executive Director/Board Chairman</span>
                     </div>
+                    <div class="d-flex justify-content-center p-4">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="team-item bg-light rounded">
+                    <div class="text-center border-bottom p-4">
+                        <img class="img-fluid rounded-circle mb-4" src="{% static 'spabs/img/team-3.jpeg' %}" alt="">
+                        <h5>Atenipase Ademola Shonde </h5>
+                        <span>Managing Director/CEO</span>
+                    </div>
+                    <div class="d-flex justify-content-center p-4">
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Feature End -->
+    </div>
+</div>
+<!-- Team End -->
 
-        <!-- Facts Start -->
-        <div class="container-xxl bg-primary fact py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                        <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">5</h1>
-                        <p class="text-white mb-0">Years Experience</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                        <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">10500</h1>
-                        <p class="text-white mb-0">Team Members</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-users fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">10</h1>
-                        <p class="text-white mb-0">Satisfied Partners</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                        <i class="fa fa-check fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-white mb-2" data-toggle="counter-up">5</h1>
-                        <p class="text-white mb-0">Completed Projects</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Facts End -->
-
-
-        <!-- Projects Start -->
-        <div class="container-xxl py-5">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Our Projects<span></span></p>
-                    <h1 class="text-center mb-5">Recently Completed Projects</h1>
-                </div>
-                <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
-                    
-                </div>
-                <div class="row g-4 portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="{% static 'spabs/img/portfolio-1.jpg' %}" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="{% static 'spabs/img/portfolio-1.jpg' %}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">SPABS - Vendor</p>
-                                <h5 class="lh-base mb-0">The vendor app will be installed on POS-Terminal, which enables the Vendor to buy ticket booklet, sell and print the ticket to subscribers. the digital tax platform is unique, secure, and responsive.
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="{% static 'spabs/img/portfolio-2.jpg' %}" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="{% static 'spabs/img/portfolio-2.jpg' %}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">SPABS - Social Worker</p>
-                                <h5 class="lh-base mb-0">This is an enumeration taxpayer benefit platform with SMEDAN, e-NSITF, Stanbic IBTC Assets Management Limited, and OGIRS TIN incorporated in it. SW can validate, manage, generate CTC monthly and yearly, and other rewards system.</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="{% static 'spabs/img/portfolio-3.jpg' %}" alt="">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="{% static 'spabs/img/portfolio-3.jpg' %}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class="text-primary fw-medium mb-2">SPABS - Subscriber</p>
-                                <h5 class="lh-base mb-0">This is a user validation app, that allow subscribers to validate their ticket, and access other benefit. users can download on Google Play Store. Subscriber can validate ticket for self and friends.</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Projects End -->
-
-        <!-- Newsletter Start -->
-        <div class="container-xxl bg-primary newsletter py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 text-center">
-                        <p class="section-title text-white justify-content-center"><span></span>Newsletter<span></span></p>
-                        <h1 class="text-center text-white mb-4">Stay Always In Touch</h1>
-                        <p class="text-white mb-4">Subscribe to our newsletter to get the the latest news updates</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Enter Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter End -->
-         
-        <!-- Partners Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-3">
-                <p class="section-title text-secondary justify-content-center"><span></span>Our Partners<span></span></p>
-                <h1 class="text-center mb-5">Who we Service and Partner with!</h1>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item  rounded my-4">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'spabs/img/ogirs.jpeg' %}" style="width: 150px; height: 150px;">
-                    </div>
-                    
-                    <div class="testimonial-item  rounded my-4">
-                            <img class="img-fluid flex-shrink-0 " src="{% static 'spabs/img/stanbicasset.jpeg' %}" style="width: 450px; height: 153px;">
-                       
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Partners End -->
-
-
-        <!-- Team Start -->
-        <div class="container-xxl py-5">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center"><span></span>Our Team<span></span></p>
-                    <h1 class="text-center mb-5">Our Board Members</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item bg-light rounded">
-                            <div class="text-center border-bottom p-4">
-                                <img class="img-fluid rounded-circle mb-4" src="{% static 'spabs/img/team-1.png' %}" alt="">
-                                <h5>Chief Joju Fadairo</h5>
-                                <span>Board Grand Patron</span>
-                            </div>
-                            <div class="d-flex justify-content-center p-4">
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item bg-light rounded">
-                            <div class="text-center border-bottom p-4">
-                                <img class="img-fluid rounded-circle mb-4" src="{% static 'spabs/img/team-2.jpeg' %}" alt="">
-                                <h5>Adesina Oyewole</h5>
-                                <span>Executive Director/Board Chairman</span>
-                            </div>
-                            <div class="d-flex justify-content-center p-4">
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item bg-light rounded">
-                            <div class="text-center border-bottom p-4">
-                                <img class="img-fluid rounded-circle mb-4" src="{% static 'spabs/img/team-3.jpeg' %}" alt="">
-                                <h5>Atenipase Ademola Shonde </h5>
-                                <span>Managing Director/CEO</span>
-                            </div>
-                            <div class="d-flex justify-content-center p-4">
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-square mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Team End -->
 
 {% endblock content %}

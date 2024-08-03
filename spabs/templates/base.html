@@ -49,7 +49,7 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    <h1 class="logo mr-auto"><a href="index.html"><img src="{% static 'spabs/img/logo.png' %}" alt="" title="" /></a></h1>
+                    <h1 class="logo mr-auto"><a href="{% url 'home' %}"><img src="{% static 'spabs/img/logo.png' %}" alt="" title="" /></a></h1>
                     <!-- <img src="{% static 'spabs/img/logo.png' %}" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -58,9 +58,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                        <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-                        <a href="{% url 'projects' %}" class="nav-item nav-link">Projects</a>
+                        <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
                         <a href="{% url 'job_portal' %}" class="nav-item nav-link">Job Portal</a>
                         <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                     </div>
@@ -70,15 +68,10 @@
 
             
         </div>
-      
-<!-- About End -->
-
-{% block content %}
+        {% block content %}
 
 
-{% endblock content %}
-        
-
+        {% endblock content %}
        <!-- Footer Start -->
        <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5 px-lg-5">
@@ -97,9 +90,8 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
-                    <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
+                    <a class="btn btn-link" href="{% url 'home' %}">Home</a>
                     <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
-                    <a class="btn btn-link" href="{% url 'projects' %}">Our Projects</a>
                     <a class="btn btn-link" href="{% url 'job_portal' %}">Job Portal</a>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -120,14 +112,11 @@
                         <div class="col-4">
                             <img class="img-fluid" src="{% static 'spabs/img/portfolio-5.jpg' %}" alt="Image">
                         </div>
-                        <div class="col-4">
-                            <img class="img-fluid" src="{% static 'spabs/img/portfolio-6.jpg' %}" alt="Image">
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>
-                    <p>Subscribe to our newsletter to get the the latest news updates </p>
+                    <p>Subscribe to our newsletter to get the latest news updates </p>
                     <div class="position-relative w-100 mt-3">
                         <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
                         <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>

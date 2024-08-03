@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static humanize %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
 <style>
@@ -16,48 +16,36 @@
     <div class="container my-5 py-5 px-lg-5">
         <div class="row g-5 py-5">
             <div class="col-12 text-center">
-                <h1 class="text-white animated slideInDown">Payment Completed</h1>
+                <h1 class="text-white animated slideInDown">Enrollment Form</h1>
                 <hr class="bg-white mx-auto mt-0" style="width: 90px;">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Payment Completed</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Enrollment</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
 </div>
-
+<div class="container">
+    <h1>Transaction Cancelled</h1>
+</div>
 <!-- Service Start -->
 <div class="container-xxl py-5">
     <div class="container py-5 px-lg-5">
         <div class="row g-4">
            
             <div id="detailsDiv" class="details">
-                <h2>Payment Completed</h2>
-                <p><h5>Name:</h5> {{ trans_qs.job_aplicant.names | title }}</p>
-                <p><h5>Job Category:</h5> {{ trans_qs.job_aplicant.job_categories.job_title | title }}</p>
-                <p><h5>Amount Paid:</h5>₦ {{ trans_qs.amount_paid | intcomma }}</p>
-                <p><h5>Transactional Ref:</h5>{{ trans_qs.payment_ref }}</p>
-                <p><h5>Status:</h5>{{ trans_qs.status }}</p>
+                <h2>Transaction has been cancelled or not completed</h2>
+                
             </div>
-            <button class="print-button" onclick="printDiv('detailsDiv')">Print Details</button>
-        
+            
             
         </div>
     </div>
 </div>
 <!-- Service End -->
 
-<script>
-    function printDiv(divId) {
-        var divContents = document.getElementById(divId).innerHTML;
-        var originalContents = document.body.innerHTML;
 
-        document.body.innerHTML = divContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    }
-</script>
 {% endblock content %}

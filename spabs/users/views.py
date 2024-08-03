@@ -82,6 +82,12 @@ class ProjectsView(TemplateView):
 projects_view = ProjectsView.as_view()
 
 
+class CancelledView(TemplateView):
+    template_name = "pages/cancelled.html"
+
+
+cancelled_view = CancelledView.as_view()
+
 class JobPortalsView(TemplateView):
     template_name = "pages/job_portal.html"
 
@@ -161,23 +167,39 @@ formation_verify = InformationVerify.as_view()
 class PaymentVerify(TemplateView):
     template_name = "pages/pdf_page.html"
 
+    def get(self, request, *args, **kwargs):
+        status = request.GET.get('status')
+        tx_ref = request.GET.get('tx_ref')
+        transaction_id = request.GET.get('transaction_id')
+
+        try:
+            trans_qs = Transactions.objects.get(payment_ref=tx_ref)
+        except Transactions.DoesNotExist:
+            # Handle the case where the transaction does not exist
+            return redirect('error_view')  # Redirect to an error page if the transaction does not exist
+
+        if status == 'cancelled':
+            trans_qs.settled = False
+            trans_qs.status = status
+            trans_qs.save()
+            return redirect('cancelled_view')  # Replace 'cancelled_view' with your desired URL name or path
+        else:
+            trans_qs.settled = True
+            trans_qs.status = status
+            trans_qs.save()
+
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        status = self.request.GET.get('status')
         tx_ref = self.request.GET.get('tx_ref')
-        transaction_id = self.request.GET.get('transaction_id')
 
-        trans_qs = Transactions.objects.get(
-            payment_ref=tx_ref
-        )
-        if status == 'cancelled':
-            trans_qs.settled=False
-            trans_qs.status=status
-            trans_qs.save()
-        else:
-            trans_qs.settled=True
-            trans_qs.status=status
-            trans_qs.save()
+        try:
+            trans_qs = Transactions.objects.get(payment_ref=tx_ref)
+            context['trans_qs'] = trans_qs
+        except Transactions.DoesNotExist:
+            context['trans_qs'] = None
+
         return context
 
 

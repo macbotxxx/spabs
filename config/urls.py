@@ -34,6 +34,9 @@ urlpatterns = [
     path(
         "completed/", views.payment_verify, name="payment_verify",
     ),
+    path(
+        "cancelled/", views.cancelled_view, name="cancelled_view",
+    ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
