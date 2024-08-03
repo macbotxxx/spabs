@@ -92,14 +92,14 @@
                   </div>
                   <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
                     
-                    <input type="hidden" name="public_key" value="FLWPUBK-076740cfb60cf22c8bc9cd7ac2d0e857-X" />
+                    <input type="hidden" name="public_key" value="FLWPUBK_TEST-776b2a52b2bbd00db5417483b9b61084-X" />
                     <input type="hidden" name="customer[email]" value="support@spabs.com" />
                     <input type="hidden" name="customer[name]" value="{{aplicant_qs.names}}" />
                     <input type="hidden" name="customer[phone_number]" value="{{aplicant_qs.phone_number}}" />
                     <input type="hidden" name="tx_ref" id="txrefInput" />
                     <input type="hidden" name="amount" value="{{ aplicant_qs.job_categories.fee }}" />
                     <input type="hidden" name="currency" value="NGN" />
-                    <input type="hidden" name="redirect_url" value="https://b5b5-105-112-114-89.ngrok-free.app/completed/" />
+                    <input type="hidden" name="redirect_url" value="https://sgslspabs.com/completed/" />
                     <br>
                     <button type="submit" id="start-payment-button"  class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Pay Now</button>
                   </form>

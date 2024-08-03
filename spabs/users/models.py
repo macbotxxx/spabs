@@ -48,7 +48,6 @@ class JobPortal(BaseModel):
         verbose_name=_("Job Title"),
         max_length=250,
         null=True,
-        help_text=_("this hold the Job title of the current job")
     )
 
     fee = models.DecimalField(
@@ -61,7 +60,6 @@ class JobPortal(BaseModel):
 
     description = models.TextField(
         verbose_name=_("Job Description"),
-        help_text=_("this hold the Job Description of the current job post ")
     )
 
     def __str__(self):
@@ -80,7 +78,6 @@ class JobEnrollment(BaseModel):
         verbose_name=_("Full Name"),
         max_length=250,
         null=True,
-        help_text=_("this hold the first , last and maiden name")
     )
 
     gender = models.CharField(
@@ -88,14 +85,18 @@ class JobEnrollment(BaseModel):
         verbose_name=_("Gender"),
         max_length=10,
         null=True,
-        help_text=_("the gender of the applicant is required")
+    )
+
+    passport = models.ImageField(
+        verbose_name=_("Passport"),
+        upload_to='passport/',
+        null=True
     )
 
     residential_address = models.CharField(
         verbose_name=_("Residential Address"),
         max_length=350,
         null=True,
-        help_text=_("the current residential address of the applicant")
     )
 
     state_of_residential = models.CharField(
@@ -103,35 +104,30 @@ class JobEnrollment(BaseModel):
         verbose_name=_("State Of Residential"),
         max_length=40,
         null=True,
-        help_text=_("current state of residential is needed")
     )
 
     local_gov_area = models.CharField(
+        choices=ModelChoices.LOCAL_GOV,
         verbose_name=_("Local Gov Area"),
         max_length=100,
         null=True,
-        help_text=_("local gov area of the residential state")
     )
 
     phone_number = models.CharField(
         verbose_name=_("Phone Number"),
         max_length=15,
         null=True,
-        help_text=_("the applicant mobile number will be inputted")
     )
 
     date_of_birth = models.DateField(
         verbose_name=_("Job Title"),
-        max_length=25,
         null=True,
-        help_text=_("the applicant date of birth")
     )
 
     place_of_birth = models.CharField(
         verbose_name=_("Place Of Birth"),
         max_length=250,
         null=True,
-        help_text=_("input the place of birth")
     )
 
     state_of_origin = models.CharField(
@@ -139,35 +135,31 @@ class JobEnrollment(BaseModel):
         verbose_name=_("State Of Origin"),
         max_length=40,
         null=True,
-        help_text=_("current state of origin is needed")
     )
 
     means_of_identification = models.CharField(
+        choices=ModelChoices.IDENTIFICATION,
         verbose_name=_("Means Of Identification"),
-        max_length=40,
+        max_length=70,
         null=True,
-        help_text=_("kindly submit the means of identification which is needed")
     )
 
     next_of_kin = models.CharField(
         verbose_name=_("Name Of Next Of Kin"),
         max_length=100,
         null=True,
-        help_text=_("the name of next of kin which will be passed by the applicant")
     )
 
     referee = models.CharField(
         verbose_name=_("Name Of Referee and Phone Number"),
         max_length=100,
         null=True,
-        help_text=_("ythe name of the refree and phone number")
     )
 
     job_categories = models.ForeignKey(
         JobPortal, on_delete=models.SET_NULL,
         null=True,
         verbose_name=_("Job Categories"),
-        help_text=_("the job categories should be selected by the applicant")
     )
 
     def __str__(self):

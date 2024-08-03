@@ -76,4 +76,11 @@ class ModelChoices:
         ('False', _('No'))
     )
 
+    IDENTIFICATION = (
+        ('NIN', _('NIN')),
+        ('VOTERS ID CARD', _('VOTERS ID CARD')),
+        ('DRIVERS LICENSE', _('DRIVERS LICENSE')),
+        ('INTERNATIONAL PASSPORT', _('INTERNATIONAL PASSPORT')),
+    )
+
     

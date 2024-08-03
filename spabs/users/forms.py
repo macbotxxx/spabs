@@ -46,9 +46,16 @@ class UserSocialSignupForm(SocialSignupForm):
 
 
 class JobEnrollmentForm(forms.ModelForm):
+    date_of_birth = forms.DateField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control datepicker',
+            'placeholder': 'Select a date'
+        })
+    )
+
     class Meta:
         model = JobEnrollment
-        exclude = ['id', 'created_date', 'modified_date', 'date_of_birth']
+        exclude = ['id', 'created_date', 'modified_date']
 
 
 FORMAT_CHOICES = (
