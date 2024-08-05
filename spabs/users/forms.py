@@ -55,7 +55,7 @@ class JobEnrollmentForm(forms.ModelForm):
 
     class Meta:
         model = JobEnrollment
-        exclude = ['id', 'created_date', 'modified_date']
+        exclude = ['id', 'created_date', 'modified_date','completed_enrollment']
 
 
 FORMAT_CHOICES = (

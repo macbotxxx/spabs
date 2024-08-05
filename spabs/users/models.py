@@ -144,6 +144,12 @@ class JobEnrollment(BaseModel):
         null=True,
     )
 
+    identification_number = models.CharField(
+        verbose_name=_("Identification Number"),
+        max_length=150,
+        null=True,
+    )
+
     next_of_kin = models.CharField(
         verbose_name=_("Name Of Next Of Kin"),
         max_length=100,
@@ -151,7 +157,13 @@ class JobEnrollment(BaseModel):
     )
 
     referee = models.CharField(
-        verbose_name=_("Name Of Referee and Phone Number"),
+        verbose_name=_("Name Of Referee"),
+        max_length=100,
+        null=True,
+    )
+
+    referee_phone_number = models.CharField(
+        verbose_name=_("Referee Phone Number"),
         max_length=100,
         null=True,
     )
@@ -160,6 +172,13 @@ class JobEnrollment(BaseModel):
         JobPortal, on_delete=models.SET_NULL,
         null=True,
         verbose_name=_("Job Categories"),
+    )
+
+    completed_enrollment = models.BooleanField(
+        verbose_name=_("Enrollment Completed"),
+        default=False,
+        null=True,
+        help_text=_("this indicates if the enrollment process has been confirmed if the payment is completed")
     )
 
     def __str__(self):

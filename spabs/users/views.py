@@ -13,16 +13,42 @@ from django.http import JsonResponse
 from django.db.models import Sum, Count
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
+
 from spabs.users.models import User, JobEnrollment, JobPortal, Transactions
 from .forms import JobEnrollmentForm, FormatForm
 from .filters import JobENrollmentFilter, TransactionsFilter
 from .admin import JobEnrollmentResource, TransactionsResource
 
 
+
 def generate_random_10_digits():
     return "".join([str(random.randint(0, 9)) for _ in range(10)])
 
+@login_required()
+def change_password(request):
+    user_password = PasswordChangeForm(request.user)
+
+    if request.method == 'POST':
+        user_password = PasswordChangeForm(request.user, request.POST)
+        if user_password.is_valid():
+            user = user_password.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return reverse_lazy("users:list_agent_view")
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_password = PasswordChangeForm(request.user)
+
+    context = {
+        'form': user_password,
+    }
+    return render(request, 'dashboard/password_change.html', context)
 
 
 class UserDetailView(LoginRequiredMixin, DetailView):
@@ -184,6 +210,11 @@ class PaymentVerify(TemplateView):
             trans_qs.save()
             return redirect('cancelled_view')  # Replace 'cancelled_view' with your desired URL name or path
         else:
+            # update the aplicant profile after payment
+            aplicant_qs = JobEnrollment.objects.get(id=trans_qs.job_aplicant.id)
+            aplicant_qs.completed_enrollment = True
+            aplicant_qs.save()
+            # save the transaction queryset
             trans_qs.settled = True
             trans_qs.status = status
             trans_qs.save()
@@ -212,9 +243,11 @@ class DashboardIndex(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # fetching the job portal
-        job_qs = JobEnrollment.objects.values('job_categories__job_title').annotate(total_enrollment=Count('job_categories'))
+        job_qs = JobEnrollment.objects.filter(completed_enrollment=True)
+        job_category_list_count = job_qs.values('job_categories__job_title').annotate(total_enrollment=Count('job_categories'))
         tranx_qs =  Transactions.objects.filter(settled=True).aggregate(total_amount=Sum('amount_paid'))['total_amount']
-        context['job_qs'] = job_qs
+        context['job_qs'] = job_category_list_count
+        context['job_cat_count'] = job_qs.count()
         context['tranx_qs'] = tranx_qs
         return context
 
@@ -327,3 +360,5 @@ class EnrollmentDetailsView(DetailView):
 
 
 enrollment_details = EnrollmentDetailsView.as_view()
+
+
