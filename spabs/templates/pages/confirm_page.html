@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% load static humanize %}
 {% block content %}
+<style>
+    .profile-section {
+      margin-top: 20px;
+    }
+    .profile-picture {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+
 
 <div class="container-xxl py-5 bg-primary hero-header">
     <div class="container my-5 py-5 px-lg-5">
@@ -18,8 +30,48 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <h3>Confirm Details - {{ aplicant_qs.job_categories }} | Fee: ₦{{ aplicant_qs.job_categories.fee | intcomma }}</h3>
+
+<div class="container profile-section">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img src="{{ aplicant_qs.passport.url }}" alt="User Picture" class="profile-picture">
+      <h3 class="mt-3">{{ aplicant_qs.names | title}}</h3>
+    </div>
+    <div class="col-md-8">
+      <h4>Profile Details</h4>
+      <ul class="list-group">
+        <li class="list-group-item"><h5>Full Name:</h5> {{ aplicant_qs.names | title}} </li>
+
+        <li class="list-group-item"><h5>Gender:</h5> {{ aplicant_qs.gender | title }}</li>
+
+        <li class="list-group-item"><h5>Residential Address:</h5> {{ aplicant_qs.residential_address }}</li>
+
+        <li class="list-group-item"><h5>State Of Residential:</h5> {{ aplicant_qs.state_of_residential }}</li>
+
+        <li class="list-group-item"><h5>Local Gov Area:</h5> {{ aplicant_qs.local_gov_area }}</li>
+
+        <li class="list-group-item"><h5>Phone Number:</h5> {{ aplicant_qs.phone_number }}</li>
+
+        <li class="list-group-item"><h5>Date Of Birth:</h5> {{ aplicant_qs.date_of_birth }}</li>
+
+        <li class="list-group-item"><h5>Place Of Birth:</h5> {{ aplicant_qs.place_of_birth }}</li>
+
+        <li class="list-group-item"><h5>State Of Origin:</h5> {{ aplicant_qs.state_of_origin }}</li>
+
+        <li class="list-group-item"><h5>Mean Of Identification:</h5> {{ aplicant_qs.means_of_identification }}</li>
+
+        <li class="list-group-item"><h5>Identification Number:</h5> {{ aplicant_qs.identification_number }}</li>
+
+        <li class="list-group-item"><h5>Next Of Kin:</h5> {{ aplicant_qs.next_of_kin }}</li>
+
+        <li class="list-group-item"><h5>Referee:</h5> {{ aplicant_qs.referee }}</li>
+
+        <li class="list-group-item"><h5>Referee Phone Number:</h5> {{ aplicant_qs.referee_phone_number }}</li>
+
+        <li class="list-group-item"><h5>Job Category:</h5> {{ aplicant_qs.job_categories.job_title | title }}</li>
+      </ul>
+    </div>
+  </div>
 </div>
 <!-- Service Start -->
 <div class="container-xxl py-5">
@@ -28,69 +80,7 @@
         <div class="container text-center">
             <div class="row">
                 
-                <div class="container text-center">
-                    <div class="row row-cols-3">
-                    <div class="col">
-                        <b>Name</b> <br>
-                        {{ aplicant_qs.names }}
-                    </div>
-                    <div class="col">
-                        <b>Gender</b> <br>
-                        {{ aplicant_qs.gender }}
-                    </div>
-                    <div class="col">
-                        <b>Residential Address</b> <br>
-                        {{ aplicant_qs.residential_address }}
-                    </div>
-                    <div class="col">
-                        <b>State of residential</b> <br>
-                        {{ aplicant_qs.state_of_residential }}
-                    </div>
-                    <div class="col">
-                        <b>Local Gov Area</b> <br>
-                        {{ aplicant_qs.local_gov_area }}
-                    </div>
-
-                    <div class="col">
-                        <b>Phone Number</b> <br>
-                        {{ aplicant_qs.phone_number }}
-                    </div>
-
-                    <div class="col">
-                        <b>Date Of Birth</b> <br>
-                        {{ aplicant_qs.date_of_birth }}
-                    </div>
-
-                    <div class="col">
-                        <b>Plaace Of Birth</b> <br>
-                        {{ aplicant_qs.place_of_birth }}
-                    </div>
-
-                    <div class="col">
-                        <b>State of Origin</b> <br>
-                        {{ aplicant_qs.state_of_origin }}
-                    </div>
-
-                    <div class="col">
-                        <b>Means Of Identification</b> <br>
-                        {{ aplicant_qs.means_of_identification }}
-                    </div>
-
-                    <div class="col">
-                        <b>Next Of Kin</b> <br>
-                        {{ aplicant_qs.next_of_kin }}
-                    </div>
-
-                    <div class="col">
-                        <b>Referee</b> <br>
-                        {{ aplicant_qs.referee }}
-                    </div>
-
-
-                      
-                    </div>
-                  </div>
-                  <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
+                <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
                     
                     <input type="hidden" name="public_key" value="FLWPUBK_TEST-776b2a52b2bbd00db5417483b9b61084-X" />
                     <input type="hidden" name="customer[email]" value="support@spabs.com" />
@@ -101,10 +91,8 @@
                     <input type="hidden" name="currency" value="NGN" />
                     <input type="hidden" name="redirect_url" value="https://sgslspabs.com/completed/" />
                     <br>
-                    <button type="submit" id="start-payment-button"  class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Pay Now</button>
+                    <button type="submit" id="start-payment-button"  class="btn btn-primary py-3 px-sm-5 rounded-pill mt-10">Pay Now</button>
                   </form>
-                 
-              
             </div>
           </div>
         </div>
