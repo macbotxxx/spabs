@@ -22,7 +22,7 @@ certificatesResolvers:
   letsencrypt:
     # https://doc.traefik.io/traefik/https/acme/#lets-encrypt
     acme:
-      email: 'support@sgslspabs.com'
+      email: 'support@tracksendpro.com'
       storage: /etc/traefik/acme/acme.json
       # https://doc.traefik.io/traefik/https/acme/#httpchallenge
       httpChallenge:
@@ -31,7 +31,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: 'Host(`sgslspabs.com`) || Host(`www.sgslspabs.com`)'
+      rule: 'Host(`tracksendpro.com`) || Host(`www.tracksendpro.com`)'
       entryPoints:
         - web-secure
       middlewares:
@@ -42,7 +42,7 @@ http:
         certResolver: letsencrypt
 
     flower-secure-router:
-      rule: 'Host(`sgslspabs.com`)'
+      rule: 'Host(`tracksendpro.com`)'
       entryPoints:
         - flower
       service: flower
